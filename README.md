@@ -17,7 +17,7 @@ java -jar RFE.jar [path to explore]
 ```
 you can type dot(.) for searching on working directory or pass a valid directory path.
 
-## Install
+## Install - Linux only
 
 Get download of RFE.jar or create a runnable jar by the source code.
 
