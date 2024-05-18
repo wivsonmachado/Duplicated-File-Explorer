@@ -1,6 +1,6 @@
 # Repeated File Explorer
 
-This a experimental project for study purposes, the concept consists on explore all file system(based by root path) looking for repeated files.
+This an experimental project for study purposes, the concept consists on explore all file system(based by root path) looking for repeated files.
 
 ## How it works?
 
@@ -8,7 +8,7 @@ The program take a look to file system recursively, identifying all the files an
 
 ## Run
 
-Get download of RFE.jar or create a runnable jar by the source code.
+Get download of RFE.jar(compiled with Java 17) or create a runnable jar by the source code.
 
 Type on terminal:
 
