@@ -3,6 +3,9 @@ package rfe;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.Scanner;
 
@@ -25,6 +28,8 @@ public class MenuOptions {
 		System.out.println("\n");
 		System.out.println("[0] - Exit Program");
 		System.out.println("[1] - Create a log file");
+		System.out.println("[2] - Move repeated files to unique directory");
+//		System.out.println("[3] - Delete repeated files");
 		
 		choiceReceiver();
 	}
@@ -44,6 +49,50 @@ public class MenuOptions {
 				createLog(repeatedFiles);
 				sc.close();
 				break;
+			case 2:
+				moveFile(repeatedFiles);
+				sc.close();
+				break;
+		}
+	}
+
+	private void moveFile(List<SystemFile> repeatedFiles) {
+		Scanner mv = new Scanner(System.in);
+		System.out.print("Do you want keep directory default to move files? ["+rootFile+"] y/N: ");
+		String answer = mv.next();
+		if(answer.toUpperCase().equals("n".toUpperCase())) {
+			System.out.print("Inform new path directory: ");
+			String newDirectory = mv.next();
+			File file = new File(newDirectory+FileSystems.getDefault().getSeparator()+"movedRepeatedFiles");			
+			boolean wasCreated = file.mkdir();
+			if(wasCreated) {
+				repeatedFiles.forEach(i -> {
+					try {
+						File moved = new File(file+FileSystems.getDefault().getSeparator()+i.getFile().getName());
+						Files.move(i.getFile().toPath(), moved.toPath(), StandardCopyOption.REPLACE_EXISTING);
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				});
+				mv.close();
+				System.out.println("Successfully move all file to the directory "+file);
+			}
+			return;
+		}
+		
+		File file = new File(rootFile+FileSystems.getDefault().getSeparator()+"movedRepeatedFiles");			
+		boolean wasCreated = file.mkdir();
+		if(wasCreated) {
+			repeatedFiles.forEach(i -> {
+				try {
+					File moved = new File(file+FileSystems.getDefault().getSeparator()+i.getFile().getName());
+					Files.move(i.getFile().toPath(), moved.toPath(), StandardCopyOption.REPLACE_EXISTING);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			});
+			mv.close();
+			System.out.println("Successfully move all file to the directory "+file);
 		}
 	}
 
