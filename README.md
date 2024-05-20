@@ -8,18 +8,18 @@ The program take a look to file system recursively, identifying all the files an
 
 ## Run
 
-Get download of RFE.jar(compiled with Java 17) or create a runnable jar by the source code.
+Get download of DFE.jar(compiled with Java 17) or create a runnable jar by the source code.
 
 Type on terminal:
 
 ```bash
-java -jar RFE.jar [path to explore]
+java -jar DFE.jar [path to explore]
 ```
 you can type dot(.) for searching on working directory or pass a valid directory path.
 
 ## Install - Linux only
 
-Get download of RFE.jar or create a runnable jar by the source code.
+Get download of DFE.jar or create a runnable jar by the source code.
 
 Move the runnable jar to /opt directory
 
@@ -27,7 +27,7 @@ create a file on /usr/bin named *duplicated-file-explorer* as content below:
 
 ```script
 #!/bin/sh
-java -jar /opt/RFE.jar $@
+java -jar /opt/DFE.jar $@
 ```
 Make a executable file with:
 
