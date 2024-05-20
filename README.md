@@ -1,6 +1,6 @@
-# Repeated File Explorer
+# Duplicated File Explorer
 
-This an experimental project for study purposes, the concept consists on explore all file system(based by root path) looking for repeated files.
+The project consists on explore all file system(based by root path) looking for duplicated files.
 
 ## How it works?
 
@@ -23,7 +23,7 @@ Get download of RFE.jar or create a runnable jar by the source code.
 
 Move the runnable jar to /opt directory
 
-create a file on /usr/bin named *repeated-file-explorer* as content below:
+create a file on /usr/bin named *duplicated-file-explorer* as content below:
 
 ```script
 #!/bin/sh
@@ -32,11 +32,11 @@ java -jar /opt/RFE.jar $@
 Make a executable file with:
 
 ```bash
-sudo chmod +x repeated-file-explorer
+sudo chmod +x duplicated-file-explorer
 ```
 
 Now you can type on your terminal:
 
 ```bash
-repeated-file-explorer [path to explore]
+duplicated-file-explorer [path to explore]
 ```

@@ -1,4 +1,4 @@
-package rfe;
+package dfe;
 
 
 import java.io.File;
@@ -92,7 +92,7 @@ public class DirectoryExplorer {
 			allRepeatedFiles.removeIf(i -> file.getFile().toString().equals(i.getFile().toString()));
 		}
 		
-		System.out.print(getCountFiles()+" files Analyzed    "+"\n\n"+"Amount repeated files at "+rootFile.getAbsoluteFile()+": "+allRepeatedFiles.size()+" files\n"); 
+		System.out.print(getCountFiles()+" files Analyzed    "+"\n\n"+"Amount duplicated files at "+rootFile.getAbsoluteFile()+": "+allRepeatedFiles.size()+" files\n"); 
 
 		return allRepeatedFiles;
 	}
